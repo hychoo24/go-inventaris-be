@@ -1,6 +1,11 @@
 package app
 
-import "github.com/gin-gonic/gin"
+import (
+	"strconv"
+	"tes1/varglobal"
+
+	"github.com/gin-gonic/gin"
+)
 
 func StartApi() {
 	// pakai gin untuk api backend
@@ -9,7 +14,8 @@ func StartApi() {
 
 	// panggil router
 	Router(r)
+	port := strconv.Itoa(varglobal.Mainport)
 
-	r.Run(":8080")
+	r.Run(":" + port) // listen and serve on
 
 }

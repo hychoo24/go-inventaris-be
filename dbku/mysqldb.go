@@ -10,7 +10,13 @@ import (
 )
 
 func InitDB() {
-	dsn := "haydar:252525@tcp(127.0.0.1:3306)/belajar?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
+		varglobal.DatabaseUser,
+		varglobal.DatabasePassword,
+		varglobal.DatabaseHost,
+		varglobal.DatabasePort,
+		varglobal.DatabaseName,
+	)
 
 	var err error
 	varglobal.DB, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
