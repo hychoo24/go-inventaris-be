@@ -22,9 +22,11 @@ func Router(r *gin.Engine) {
 	r.POST("/inventory", inventory.CreateInventoryItem)
 	r.PUT("/inventory/:id", inventory.UpdateInventoryItem)
 	r.DELETE("/inventory/:id", inventory.DeleteInventoryItem)
-	r.GET("/inventory/:id", inventory.GetInventoryItemByID)
 
-	// Additional routes can be added here
+	// Router for categories
 	r.GET("/category", category.GetCategory)
+	r.POST("/category", category.AddCategory)
+	r.PUT("/category/:id", category.UpdateCategory)
+	r.DELETE("/category/:id", category.DeleteCategory)
 
 }
