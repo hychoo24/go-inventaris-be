@@ -3,6 +3,7 @@ package app
 import (
 	"tes1/controller/book"
 	"tes1/controller/category"
+	"tes1/controller/homepage"
 	"tes1/controller/inventory"
 
 	"github.com/gin-gonic/gin"
@@ -28,5 +29,8 @@ func Router(r *gin.Engine) {
 	r.POST("/category", category.AddCategory)
 	r.PUT("/category/:id", category.UpdateCategory)
 	r.DELETE("/category/:id", category.DeleteCategory)
+
+	// Router for inventory stats
+	r.GET("/home/stats", homepage.GetHomepageStats)
 
 }
